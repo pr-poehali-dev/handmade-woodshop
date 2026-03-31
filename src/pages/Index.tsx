@@ -74,7 +74,7 @@ const Index = () => {
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
           <button onClick={() => handleNav("home")} className="flex items-center gap-2">
             <span className="text-2xl">🌲</span>
-            <span className="font-cormorant text-xl font-semibold tracking-wide text-foreground">Древолад</span>
+            <span className="font-cormorant text-xl font-semibold tracking-wide text-foreground">Уральский резчик</span>
           </button>
 
           <nav className="hidden md:flex items-center gap-7">
@@ -132,12 +132,12 @@ const Index = () => {
             </div>
             <div className="mt-16 flex gap-8">
               <div>
-                <p className="font-cormorant text-3xl font-semibold text-foreground">8+</p>
+                <p className="font-cormorant text-3xl font-semibold text-foreground">5+</p>
                 <p className="text-xs text-muted-foreground mt-1">лет опыта</p>
               </div>
               <div className="w-px bg-border" />
               <div>
-                <p className="font-cormorant text-3xl font-semibold text-foreground">300+</p>
+                <p className="font-cormorant text-3xl font-semibold text-foreground">100+</p>
                 <p className="text-xs text-muted-foreground mt-1">изделий создано</p>
               </div>
               <div className="w-px bg-border" />
@@ -158,7 +158,7 @@ const Index = () => {
         </div>
 
         <div className="border-t border-border py-4 px-8 flex items-center gap-8 overflow-x-auto">
-          {["Дуб", "Орех", "Ясень", "Сосна", "Берёза", "Клён"].map((wood) => (
+          {["Ольха", "Орех", "Ясень", "Сосна", "Берёза", "Клён"].map((wood) => (
             <span key={wood} className="text-xs text-muted-foreground uppercase tracking-widest whitespace-nowrap">
               {wood}
             </span>
@@ -508,9 +508,9 @@ const Index = () => {
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <span className="text-xl">🌲</span>
-            <span className="font-cormorant text-lg font-medium" style={{ color: "#f5ede0" }}>Древолад</span>
+            <span className="font-cormorant text-lg font-medium" style={{ color: "#f5ede0" }}>Уральский резчик</span>
           </div>
-          <p className="font-golos text-xs text-center" style={{ color: "rgba(245,237,224,0.5)" }}>© 2024 Древолад. Изделия из дерева ручной работы.</p>
+          <p className="font-golos text-xs text-center" style={{ color: "rgba(245,237,224,0.5)" }}>© 2024 Уральский резчик. Изделия из дерева ручной работы.</p>
           <div className="flex gap-6">
             {NAV_ITEMS.slice(0, 4).map((item) => (
               <button key={item.id} onClick={() => handleNav(item.id)} className="font-golos text-xs transition-colors" style={{ color: "rgba(245,237,224,0.5)" }}>
