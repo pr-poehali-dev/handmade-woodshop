@@ -8,6 +8,7 @@ const CATALOG_IMG = "https://cdn.poehali.dev/projects/0353c29c-9de5-495b-a4ba-80
 const NAV_ITEMS = [
   { id: "home", label: "Главная" },
   { id: "catalog", label: "Каталог" },
+  { id: "order", label: "Сделать заказ" },
   { id: "master", label: "О мастере" },
   { id: "process", label: "Процесс" },
   { id: "reviews", label: "Отзывы" },
@@ -22,6 +23,7 @@ const PRODUCTS = [
   { id: 4, name: "Деревянная ложка", price: 650, size: "small", wood: "Дуб", style: "Эко", img: MASTER_IMG },
   { id: 5, name: "Поднос «Сосна»", price: 2200, size: "large", wood: "Сосна", style: "Скандинав", img: CATALOG_IMG },
   { id: 6, name: "Набор для кухни", price: 4500, size: "medium", wood: "Орех", style: "Классика", img: HERO_IMG },
+  { id: 7, name: "Окарина", price: 2800, size: "small", wood: "Ольха", style: "Эко", img: MASTER_IMG },
 ];
 
 const PROCESS_STEPS = [
@@ -266,6 +268,100 @@ const Index = () => {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* ORDER */}
+      <section id="order" className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <p className="font-golos text-xs uppercase tracking-[0.2em] mb-3" style={{ color: "hsl(30, 55%, 42%)" }}>Индивидуальный заказ</p>
+              <h2 className="section-title mb-4">Сделать заказ</h2>
+              <div className="divider-organic" />
+              <p className="font-golos text-base text-muted-foreground leading-relaxed mt-6 mb-8">
+                Расскажите, что вы хотите — мы создадим изделие специально для вас.
+                Уточним размеры, породу дерева, отделку и сроки. Каждый заказ уникален.
+              </p>
+              <div className="space-y-4">
+                {[
+                  { icon: "Pencil", text: "Опишите изделие в свободной форме" },
+                  { icon: "Ruler", text: "Укажите желаемые размеры и материал" },
+                  { icon: "Clock", text: "Мы свяжемся с вами в течение нескольких часов" },
+                  { icon: "Package", text: "Согласуем детали и приступим к работе" },
+                ].map((item) => (
+                  <div key={item.icon} className="flex items-center gap-4">
+                    <div className="w-9 h-9 bg-secondary flex items-center justify-center flex-shrink-0">
+                      <Icon name={item.icon} size={16} className="text-accent" />
+                    </div>
+                    <span className="font-golos text-sm text-foreground">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-secondary p-8">
+              <h3 className="font-cormorant text-2xl font-medium text-foreground mb-6">Опишите ваш заказ</h3>
+              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">Ваше имя</label>
+                  <input
+                    type="text"
+                    placeholder="Иван Иванов"
+                    className="w-full px-4 py-3 text-sm bg-background border border-border text-foreground focus:outline-none focus:border-accent transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">Телефон или Email</label>
+                  <input
+                    type="text"
+                    placeholder="+7 (999) 000-00-00"
+                    className="w-full px-4 py-3 text-sm bg-background border border-border text-foreground focus:outline-none focus:border-accent transition-colors"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">Что хотите заказать?</label>
+                  <select className="w-full px-4 py-3 text-sm bg-background border border-border text-foreground focus:outline-none focus:border-accent transition-colors">
+                    <option value="">Выберите тип изделия</option>
+                    <option>Разделочная доска</option>
+                    <option>Салатница / Миска</option>
+                    <option>Поднос</option>
+                    <option>Окарина</option>
+                    <option>Ложка / Лопатка</option>
+                    <option>Шкатулка</option>
+                    <option>Другое (опишу в сообщении)</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">Порода дерева</label>
+                  <select className="w-full px-4 py-3 text-sm bg-background border border-border text-foreground focus:outline-none focus:border-accent transition-colors">
+                    <option value="">Не знаю / на усмотрение мастера</option>
+                    <option>Ольха</option>
+                    <option>Орех</option>
+                    <option>Ясень</option>
+                    <option>Сосна</option>
+                    <option>Берёза</option>
+                    <option>Клён</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-muted-foreground mb-2">Подробности и пожелания</label>
+                  <textarea
+                    rows={4}
+                    placeholder="Размеры, назначение, пожелания по отделке, срочность..."
+                    className="w-full px-4 py-3 text-sm bg-background border border-border text-foreground focus:outline-none focus:border-accent transition-colors resize-none"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="btn-wood w-full py-4 text-sm uppercase tracking-widest"
+                >
+                  Отправить заявку
+                </button>
+                <p className="text-xs text-muted-foreground text-center">Отвечаем в течение нескольких часов</p>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
 
